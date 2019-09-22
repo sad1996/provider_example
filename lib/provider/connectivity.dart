@@ -13,6 +13,12 @@ class ConnectivityProvider with ChangeNotifier {
   bool reloadRepos = false;
 
   ConnectivityProvider() {
+    Connectivity().checkConnectivity().then((result) {
+      connectivityResult = result;
+      hasConnection = connectivityResult != ConnectivityResult.none;
+      printStatus();
+      notifyListeners();
+    });
     addingStream();
     listeningToStream();
   }

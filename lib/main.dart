@@ -2,6 +2,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_arch/provider/connectivity.dart';
+import 'package:flutter_arch/provider/emloyees.dart';
 import 'package:flutter_arch/provider/repos.dart';
 import 'package:flutter_arch/widget/no_connection.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
             builder: (_) => ConnectivityProvider()),
         ChangeNotifierProvider<ReposProvider>(
             builder: (_) => ReposProvider(context)),
+        ChangeNotifierProvider<EmployeesProvider>(
+            builder: (_) => EmployeesProvider(context)),
       ],
       child: Directionality(
         textDirection: TextDirection.ltr,
@@ -37,13 +40,13 @@ class MyApp extends StatelessWidget {
               ),
               home: FirstPage(title: 'Connectivity'),
             ),
-            Consumer<ConnectivityProvider>(
-                builder: (context, connectivity, child) {
-              return connectivity.connectivityResult == null ||
-                      connectivity.connectivityResult == ConnectivityResult.none
-                  ? NoConnection()
-                  : SizedBox();
-            })
+//            Consumer<ConnectivityProvider>(
+//                builder: (context, connectivity, child) {
+//              return connectivity.connectivityResult == null ||
+//                      connectivity.connectivityResult == ConnectivityResult.none
+//                  ? NoConnection()
+//                  : SizedBox();
+//            })
           ],
         ),
       ),

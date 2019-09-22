@@ -4,7 +4,7 @@ description: An example flutter architecture application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -15,6 +15,12 @@ dependencies:
   provider: ^3.1.0
   shimmer: ^1.0.0
   http: ^0.12.0+2
+  async_resource:
+    git:
+      url: https://github.com/sad1996/async_resource
+  path_provider: ^1.3.0
+  flutter_slidable: ^0.5.3
+  intl: ^0.16.0
 
 dev_dependencies:
   flutter_test:
